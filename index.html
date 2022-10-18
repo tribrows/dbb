@@ -1209,7 +1209,7 @@
     <br>
     <center>A horse icon will indicate what type of code is being run: <a href="https://twitter.com/horse_wasm">horse_wasm</a> for WebAssembly, or <a href="https://twitter.com/horse_js">horse_js</a> for JavaScript/asm.js.</center>
     <br>
-    -->
+    
     <div class="emscripten_border">
       <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()"></canvas>
     </div>
@@ -1319,7 +1319,7 @@
       Module.postLoadWorld = function() {
         Module.tweakDetail();
         BananaBread.execute('sensitivity 10');
-        //BananaBread.execute('clearconsole');
+        BananaBread.execute('clearconsole');
       };
     </script>
 
