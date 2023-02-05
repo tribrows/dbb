@@ -105,8 +105,8 @@
 
   </head>
   <body>
-   <div class='hide">
-   <a href="http://emscripten.org">
+   <div class='hide"></div>
+   <a class='hide" href="http://emscripten.org">
       <?xml version="1.0" encoding="UTF-8" standalone="no"?><svg
    version="1.1"
    id="Layer_1"
@@ -1198,7 +1198,7 @@
    style="stop-color:#000000;stop-opacity:0"
    offset="1" /></linearGradient></g></g></svg>
     </a> 
-               </div>
+              
 
     <div class="spinner hide" id="spinner" ></div>
     <div class="emscripten hide" id="status" >Downloading...</div>
@@ -1275,8 +1275,8 @@
             text = m[1];
             progressElement.value = parseInt(m[2])*100;
             progressElement.max = parseInt(m[4])*100;
-            progressElement.hidden = false;
-            spinnerElement.hidden = false;
+            progressElement.hidden = true;
+            spinnerElement.hidden = true;
           } else {
             progressElement.value = null;
             progressElement.max = null;
