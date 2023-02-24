@@ -10,6 +10,8 @@
                style-src 'self' 'nonce-csp'; 
                script-src 'self' 'nonce-csp';
                ">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://tribrows.github.io/">
+    
     <title>Emscripten-Generated Code</title>
     
     <style nonce="csp">
@@ -1366,7 +1368,8 @@
           if (isFullScreen) {
             BananaBread.execute('screenres ' + screen.width + ' ' + screen.height);
           } else {
-            BananaBread.execute('screenres ' + 640 + ' ' + 480);
+            //BananaBread.execute('screenres ' + 640 + ' ' + 480);
+            BananaBread.execute('screenres ' + 1024 + ' ' + 640);
           }
         },
       };
@@ -1400,6 +1403,7 @@
     <script async src="game/preload_base.js" nonce="csp" type="text/javascript"></script>
     <script async src="game/preload_character.js" nonce="csp" type="text/javascript"></script>
     <script async src="game/preload_low.js" nonce="csp" type="text/javascript"></script>
+    
     <script  nonce="csp" type="text/javascript">
 
       var xhr = new XMLHttpRequest();
@@ -1672,7 +1676,7 @@ function gameLoop() {
   var start = rAF(gameLoop);
 }
 
-BananaBread.execute('screenres ' + 1024 + ' ' + 640);
+
 
 </script>
   </body>
