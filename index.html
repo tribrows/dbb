@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+
+<meta http-equiv="Content-Security-Policy" 
+      content="default-src 'none'; 
+               style-src 'self' 'nonce-csp'; 
+               script-src 'self' 'nonce-csp';
+               ">
     <title>Emscripten-Generated Code</title>
     
-    <style>
+    <style nonce="csp">
 .axes {
   padding: 1em;
 }
@@ -47,7 +54,7 @@
 }
 </style>
     
-    <style>
+    <style nonce="csp">
       .hide {
       display: none!important;
       visibility:hidden!important;
@@ -145,7 +152,7 @@
       }
     </style>
 
-      <style>
+      <style nonce="csp">
       #ball {
         width: 40px;
         height: 40px;
@@ -161,7 +168,7 @@
       }
     </style>
     
-<script type="text/javascript" src="js/gamepadtest.js"></script>
+<script nonce="csp" type="text/javascript" src="js/gamepadtest.js"></script>
     
   </head>
   <body>
@@ -1280,7 +1287,7 @@
     <textarea class="hide" id="output" rows="8"></textarea>
 
 
-    <script type='text/javascript'>
+    <script nonce="csp" type='text/javascript'>
       var statusElement = document.getElementById('status');
       var progressElement = document.getElementById('progress');
       var spinnerElement = document.getElementById('spinner');
@@ -1373,7 +1380,7 @@
       };
     </script>
 
-    <script>
+    <script nonce="csp" type="text/javascript">
       Module.desiredWidth = 640;
       Module.desiredHeight = 480;
       Module.autoexec = function() {
@@ -1386,14 +1393,14 @@
       };
     </script>
 
-    <script async src="js/api.js"></script>
-    <script async src="js/zee.js"></script>
-    <script async src="game/gl-matrix.js.js"></script>
-    <script async src="game/setup_low.js"></script>
-    <script async src="game/preload_base.js"></script>
-    <script async src="game/preload_character.js"></script>
-    <script async src="game/preload_low.js"></script>
-    <script>
+    <script async src="js/api.js" nonce="csp" type="text/javascript"></script>
+    <script async src="js/zee.js" nonce="csp" type="text/javascript"></script>
+    <script async src="game/gl-matrix.js.js" nonce="csp" type="text/javascript"></script>
+    <script async src="game/setup_low.js" nonce="csp" type="text/javascript"></script>
+    <script async src="game/preload_base.js" nonce="csp" type="text/javascript"></script>
+    <script async src="game/preload_character.js" nonce="csp" type="text/javascript"></script>
+    <script async src="game/preload_low.js" nonce="csp" type="text/javascript"></script>
+    <script  nonce="csp" type="text/javascript">
 
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'bb.wasm', true);
@@ -1534,11 +1541,11 @@
        });
       }
 
-    </script>
+    </script >
 <p id="gamepad-info">Waiting for Gamepad.</p>
     <div id="ball"></div>
 
-<script>
+<script  nonce="csp" type="text/javascript">
 
 var gamepadInfo = document.getElementById("gamepad-info");
 var ball = document.getElementById("ball");
@@ -1665,7 +1672,7 @@ function gameLoop() {
   var start = rAF(gameLoop);
 }
 
-
+BananaBread.execute('screenres ' + 1024 + ' ' + 640);
 
 </script>
   </body>
