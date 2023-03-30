@@ -180,14 +180,17 @@ body
 <a-scene INSPECTOR-PLUGIN-RECAST environment="preset: arches; shadow: true;" keyboard-shortcuts="enterVR: false;" vr-mode-ui="enabled: false;" screen-controls="" inspector="" screenshot="" device-orientation-permission-ui="" fog="" visible="">
 	
 	<a-assets>
+<!--
 		<a-asset-item id="sycamore" src="A-FrameModels_files/SycamoreTree.gltf"></a-asset-item>
 		<a-asset-item id="navmesh" src="A-FrameModels_files/navmesh.gltf"></a-asset-item>
+-->
 		<a-asset-item id="metro" src="model.gltf"></a-asset-item>
 	</a-assets>
 	
 	<a-entity nav-mesh="#metro" id="metro"></a-entity>
-	<a-entity gltf-model="#sycamore" position="-5 0 -15" rotation="0 0 0" scale="0.4 0.5 0.5"></a-entity>
+	<!-- <a-entity gltf-model="#sycamore" position="-5 0 -15" rotation="0 0 0" scale="0.4 0.5 0.5"></a-entity>
 	<a-entity nav-mesh="#navmesh" id="navmesh"></a-entity>
+	-->
 	
 	<!-- adding in look controls; automatically sets turnEnabled/lookEnabled to false  -->
 	<a-entity id="camera" camera="" look-controls="" position="0 1.6 0" extended-wasd-controls="flyEnabled: true;" rotation=""></a-entity>
