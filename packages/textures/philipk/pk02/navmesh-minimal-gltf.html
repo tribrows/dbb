@@ -179,12 +179,20 @@ body
  -->
 <a-scene INSPECTOR-PLUGIN-RECAST environment="preset: arches; shadow: true;" keyboard-shortcuts="enterVR: false;" vr-mode-ui="enabled: false;" screen-controls="" inspector="" screenshot="" device-orientation-permission-ui="" fog="" visible="">
 	
+	<a-assets>
+		<a-asset-item id="sycamore" src="A-FrameModels_files/SycamoreTree.gltf"></a-asset-item>
+		<a-asset-item id="nav-mesh" src="A-FrameModels_files/nav-mesh.gltf"></a-asset-item>
+		<a-asset-item id="metro" src="model.gltf"></a-asset-item>
+	</a-assets>
+	
+	<a-entity nav-mesh="#metro" id="metro"></a-entity>
+	<a-entity gltf-model="#sycamore" position="-5 0 -15" rotation="0 0 0" scale="0.4 0.5 0.5"></a-entity>
+	<a-entity nav-mesh="#nav-mesh" id="nav-mesh"></a-entity>
+	
 	<!-- adding in look controls; automatically sets turnEnabled/lookEnabled to false  -->
-	<a-entity id="camera" camera="" look-controls="" position="0 1.6 0" extended-wasd-controls="flyEnabled: true;" rotation="">
-	</a-entity>
+	<a-entity id="camera" camera="" look-controls="" position="0 1.6 0" extended-wasd-controls="flyEnabled: true;" rotation=""></a-entity>
 	
 <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" data-engine="three.js r137" style="" width="1280" height="910"></canvas><div class="a-loader-title" style="display: none;">Screen Controls</div><a-entity class="environment" position="" light="" visible=""></a-entity><a-entity class="environment" position="" light="" visible=""></a-entity><a-entity rotation="" class="environmentGround environment" visible="" scale="" shadow=""></a-entity><a-entity class="environmentDressing environment" visible=""></a-entity><a-sky radius="200" theta-length="110" class="environment" material="" visible="" geometry="" scale=""></a-sky><a-entity id="stars"></a-entity></a-scene>
-
 
 </body></html>
 
@@ -199,8 +207,9 @@ body
 
 <body>
 <a-scene environment="preset: default; fog: 0; playArea: 1.0; groundYScale: 5.00; groundTexture: walkernoise; groundColor: #002200; groundColor2: #003300" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" device-orientation-permission-ui="" visible="">
--->
+
 	<a-assets>
+-->
 		<!-- all model files from Poly by Google 
 			 (with texture modifications to reduce file size and increase brightness) -->
 <!-- 
