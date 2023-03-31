@@ -9,7 +9,7 @@
 
     <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@tagOrCommit/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-geometry-merger-component/dist/aframe-geometry-merger-component.min.js"></script>
+	<script src="https://unpkg.com/aframe-geometry-merger-component/dist/aframe-geometry-merger-component.min.js"></script>
     
 <style>
 
@@ -169,7 +169,11 @@ body
   
   		}
 	});
-
+	
+document.querySelector('#changeFloorButton').addEventListener('click', function() {
+      document.querySelector('#camRig').object3D.position.set(0, 3.9, -6);
+         document.querySelector('#camRig').components['movement-controls'].updateNavLocation()
+  });
 
 </script>
 
@@ -179,6 +183,20 @@ body
  -->
 <a-scene INSPECTOR-PLUGIN-RECAST environment="preset: arches; shadow: true;" keyboard-shortcuts="enterVR: true;" vr-mode-ui="enabled: false;" screen-controls="" inspector="" screenshot="" device-orientation-permission-ui="" fog="" visible="">
 	
+
+<a-scene cursor="rayOrigin: mouse">
+  <a-entity id="camRig" movement-controls="speed: 0.3; 
+               constrainToNavMesh: true">
+    <a-entity id="cam" camera look-controls position="0 1 0"></a-entity>
+  </a-entity>
+    <a-plane color="#8c5050" height="100" width="100" rotation="-90 0 0"></a-plane>
+    <a-box color="#4864a8" height=".5" width="5" depth="5" position="0 3.5 -7"></a-box>
+      <a-plane color="#469951" height="7" width="1" rotation="-55 0 0" position="0 1.6 -1.8"></a-plane>
+      
+      <!-- Button -->
+      <a-plane id="changeFloorButton" color="#323232" width=".5" height=".5" position="-2 2 0"></a-plane>
+      
+<a-entity id="navmesh" gltf-model="https://cdn.glitch.com/e4e19191-0e27-4131-a0d5-d104ea8fedb9%2Fnavmesh.gltf?v=1563350868964" nav-mesh position="0 0 0" visible="true"></a-entity>
 	<a-assets>
 <!--	<a-asset-item id="sky001" src="https://raw.githubusercontent.com/tribrows/dbb/gh-pages/packages/textures/philipk/pk02/images/sand360.jpg"
  visible="true" geometry="" scale="">
