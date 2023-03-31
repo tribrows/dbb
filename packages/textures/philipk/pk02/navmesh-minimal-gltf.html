@@ -179,39 +179,39 @@ body
  -->
 <a-scene INSPECTOR-PLUGIN-RECAST environment="preset: arches; shadow: true;" keyboard-shortcuts="enterVR: true;" vr-mode-ui="enabled: false;" screen-controls="" inspector="" screenshot="" device-orientation-permission-ui="" fog="" visible="">
 	
-	<a-assets><!--
-		<a-asset-item id="navmesh" src="A-FrameModels_files/navmesh.gltf"></a-asset-item>
+	<a-assets>
+<!--
+		<a-asset-item id="sky001" src="https://raw.githubusercontent.com/tribrows/dbb/gh-pages/packages/textures/philipk/pk02/images/sand360.jpg"
+ visible="true" geometry="" scale="">
+	></a-asset-item>
 		--></a-assets>
 	
 	<a-entity nav-mesh="#metro" id="metro" gltf-model="model.gltf" position="0 -15 0" scale="0.2 0.2 0.2"></a-entity>
+	<a-sky radius="200" theta-length="110" class="environment" material="#sky001" visible="" geometry="" scale=""></a-sky> 
+	<a-entity id="camera" camera="" look-controls="" position="0 1.6 0" extended-wasd-controls="flyEnabled: true;moveSpeed: 15" rotation=""></a-entity>
 	
-
-	 <a-sky radius="200" theta-length="110" class="environment" material="src: https://raw.githubusercontent.com/tribrows/dbb/gh-pages/packages/textures/philipk/pk02/images/sand360.jpg" visible="false" geometry="" scale="1 1 1"></a-sky> 
-	<a-entity id="camera" camera="" look-controls="" position="0 1.6 0" extended-wasd-controls="flyEnabled: true;" rotation=""></a-entity>
+<!-- 	<canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" data-engine="three.js r137" style="" width="1280" height="910"></canvas>
+	<div class="a-loader-title" style="display: none;">Screen Controls</div> -->
 	
-	<canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" data-engine="three.js r137" style="" width="1280" height="910"></canvas>
-	<div class="a-loader-title" style="display: none;">Screen Controls</div>
-	
-	<a-entity id="camera" camera="" look-controls="" position="82.1581625631943 7.584999999999987 -68.56651665330034" extended-wasd-controls="moveSpeed: 15" rotation="14.209353319244428 210.3901023720389 0" data-aframe-inspector-original-camera=""></a-entity>
-	<a-entity class="environment" position="" light="" visible=""></a-entity>
+<!-- 	<a-entity id="camera" camera="" look-controls="" position="82.1581625631943 7.584999999999987 -68.56651665330034" extended-wasd-controls="moveSpeed: 15" rotation="14.209353319244428 210.3901023720389 0" data-aframe-inspector-original-camera=""></a-entity>
 	<a-entity class="environment" position="" light="" visible=""></a-entity>
 	<a-entity rotation="" class="environmentGround environment" visible="" scale="" shadow=""></a-entity>
 	<a-entity class="environmentDressing environment" visible=""></a-entity>
-	<a-sky radius="200" theta-length="110" class="environment" material="" visible="false" geometry="" scale=""></a-sky>
+	<a-sky radius="200" theta-length="110" class="environment" material="" visible="false" geometry="" scale=""></a-sky> -->
 	
-	<!--</a-scene><a-scene>-->
+<!--	</a-scene><a-scene>-->
 	
-	<a-entity id="camRig" movement-controls="speed: 0.3;constrainToNavMesh: true">
-		<!--<a-entity id="cam" camera look-controls position="0 1 0"></a-entity>-->   </a-entity>   
+<!-- 	<a-entity id="camRig" movement-controls="speed: 0.3;constrainToNavMesh: true">
+		<a-entity id="cam" camera look-controls position="0 1 0"></a-entity></a-entity>   
 		<a-entity geometry-merger="preserveOriginal: false" nav-mesh material="color: #AAA">     
 			<a-plane geometry="buffer: false" material="side: both" position="1 0 0" rotation="-90 0 0"></a-plane>
 			<a-plane geometry="buffer: false" material="side: both" rotation="-90 0 0"></a-plane>
 			<a-plane geometry="buffer: false" material="side: both" position="0 0 1" rotation="-90 0 0"></a-plane>
 			<a-plane geometry="buffer: false" scale="3 3 3" material="side: both" position="0 -2 1" rotation="-90 0 0"></a-plane>
 		</a-entity>
-	</a-scene>
+	</a-scene> -->
 	
-	<!--<a-scene>
+<!--	<a-scene>
 	<a-entity gltf-model="#sycamore" id="#sycamore" gltf-model="A-FrameModels_files/SycamoreTree.gltf" position="-5 0 -15" rotation="0 0 0" scale="0.4 0.5 0.5"></a-entity>
 	<a-entity nav-mesh="#navmesh" id="navmesh" gltf-model="A-FrameModels_files/navmesh.gltf"></a-entity>
 	</a-scene>
