@@ -1,0 +1,242 @@
+{
+  "asset": {
+    "generator": "https://3dviewer.net",
+    "version": "2.0"
+  },
+  "buffers": [
+    {
+      "byteLength": 0
+    },
+    {
+      "uri": "untitled.bin",
+      "byteLength": 152568
+    },
+    {
+      "uri": "untitled_1.bin",
+      "byteLength": 25428
+    },
+    {
+      "uri": "untitled_2.bin",
+      "byteLength": 13968
+    },
+    {
+      "uri": "untitled_3.bin",
+      "byteLength": 2328
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 1,
+      "byteOffset": 0,
+      "byteLength": 152568,
+      "target": 34962,
+      "byteStride": 24
+    },
+    {
+      "buffer": 2,
+      "byteOffset": 0,
+      "byteLength": 25428,
+      "target": 34963
+    },
+    {
+      "buffer": 3,
+      "byteOffset": 0,
+      "byteLength": 13968,
+      "target": 34962,
+      "byteStride": 24
+    },
+    {
+      "buffer": 4,
+      "byteOffset": 0,
+      "byteLength": 2328,
+      "target": 34963
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 6357,
+      "max": [
+        0.9891725182533264,
+        1,
+        0.9955287575721741
+      ],
+      "min": [
+        -0.9799284934997559,
+        0.07000450789928436,
+        -0.8900441527366638
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 12,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 6357,
+      "max": [
+        100.61190795898438,
+        26.595970153808594,
+        100.61190795898438
+      ],
+      "min": [
+        -100.68809509277344,
+        0.19596900045871735,
+        -98.28809356689453
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "normalized": false,
+      "count": 6357,
+      "max": [
+        6356
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 582,
+      "max": [
+        0.8944113850593567,
+        1,
+        0.9322528839111328
+      ],
+      "min": [
+        -0.7999877333641052,
+        0.2683905065059662,
+        -0.5546973347663879
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 12,
+      "componentType": 5126,
+      "normalized": false,
+      "count": 582,
+      "max": [
+        100.61190795898438,
+        9.9959716796875,
+        100.61190795898438
+      ],
+      "min": [
+        -97.08809661865234,
+        0.39597299695014954,
+        -100.68809509277344
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 0,
+      "componentType": 5125,
+      "normalized": false,
+      "count": 582,
+      "max": [
+        581
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0,
+        1
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0
+    },
+    {
+      "mesh": 1
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "material": 0,
+          "mode": 4,
+          "attributes": {
+            "NORMAL": 0,
+            "POSITION": 1
+          },
+          "indices": 2
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "material": 1,
+          "mode": 4,
+          "attributes": {
+            "NORMAL": 3,
+            "POSITION": 4
+          },
+          "indices": 5
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "metallicFactor": 1,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "metallicFactor": 1,
+        "roughnessFactor": 1
+      },
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false
+    }
+  ]
+}
