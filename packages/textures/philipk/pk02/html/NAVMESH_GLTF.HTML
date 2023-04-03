@@ -18,6 +18,9 @@
 <body>
 
 <a-scene cursor="rayOrigin: mouse">
+  <a-entity light="type: ambient; color: #f00; intensity: 0.05"></a-entity>
+  <a-entity light="type: spot; color: #00f; intensity: 1" rotation="0 150 0" position="27 2 10"></a-entity> 
+  
   <a-entity id="camRig" movement-controls="speed: 0.8 ;constrainToNavMesh: true">
     <a-entity id="cam" camera look-controls position="0 1 0"></a-entity>
   </a-entity>
