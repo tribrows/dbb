@@ -1,0 +1,8 @@
+# exported by https://3dviewer.net
+newmtl blue
+Kd 0 0 100
+d 1
+
+newmtl red
+Kd 100 0 0
+d 1
