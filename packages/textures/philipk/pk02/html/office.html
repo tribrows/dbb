@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="office_files/aframe.min.js"></script>
+    <script src="office_files/aframe-environment-component.min.js"></script>
+      <script src="office_files/aframe-spherical-controls-component.min.js"></script>
+  </head>
+  <body>
+    <script>
+  AFRAME.registerComponent('scale-on-mouseenter', {
+    schema: {
+      to: {default: '2.5 2.5 2.5', type: 'vec3'}
+    },
+
+    init: function () {
+      var data = this.data;
+      var el = this.el;
+      this.el.addEventListener('mouseenter', function () {
+        el.object3D.scale.copy(data.to);
+      });
+    }
+  });
+</script>
+<a-scene renderer="
+                   colorManagement: true;">
+  <a-assets>
+    <img id="boxTexture" src="office_files/mYmmbrp.jpg">
+        <img id="skyTexture" src="office_files/sechelt.jpg">
+    <img id="groundTexture" src="office_files/floor.jpg">
+<!--         <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
+      preload></audio> -->
+     <a-asset-item id="meeting_room" src="https://cdn.glitch.me/a8291825-29e8-463c-aa81-b88bf9bbe58c/changjing_v03.gltf?v=1657000875278"></a-asset-item>
+<!--     <a-asset-item id="nvluren" src="https://cdn.glitch.global/a8291825-29e8-463c-aa81-b88bf9bbe58c/nvluran.gltf?v=1657002719656"></a-asset-item> -->
+    
+  </a-assets>
+  
+  <a-box src="#boxTexture" position="2 2 -5" rotation="0 45 45" scale="1 1 1" animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true" animation__mouseenter="property: scale; to: 2.3 2.3 2.3; dur: 300; startEvents: mouseenter" animation__mouseleave="property: scale; to: 2 2 2; dur: 300; startEvents: mouseleave">
+  <a-sphere color="blue" position="1 1 0" scale="1 1 1"></a-sphere>
+  </a-box>
+  
+  <a-entity scale-on-mouseenter=""></a-entity>
+  
+<!--     <a-sound src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay="true"
+    position="-3 1 -4"></a-sound> -->
+<!--   <a-entity
+  text="value: Hello, A-Frame!; color: #BBB"
+  position="0  0.2 -3"
+  scale="1.5 1.5 1.5"></a-entity> -->
+  
+    <a-light type="ambient" position="0 0 0" intensity="0.3" color="0xffffff"></a-light>
+<a-light position="3 3 3" intensity="0.5" color="0xffffff"></a-light>
+<!--   <a-light type="point" intensity="2" position="0 3 0" color="#877d7d"></a-light> -->
+<!--   <a-entity environment="preset: forest; dressingAmount: 500"></a-entity> -->
+<!--   <a-sky src="#skyTexture"></a-sky> -->
+<!--   <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30" repeat="10 10"></a-plane> -->
+  
+<!-- <a-entity camera look-controls wasd-controls position="0 1.6 0">
+  <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="0 0 -1"
+            material="color: gray; opacity: 0.5"></a-entity>
+</a-entity> -->
+  
+  
+<!--   <a-gltf-model position="0 0 0" scale="1 1 1" src="#meeting_room"></a-gltf-model>  -->
+<!--   <a-gltf-model position="0 0 0" src="#nvluren"></a-gltf-model>  -->
+
+  
+<!--   <a-box color="green" position = "0 1.0 0" scale="1 1 1"
+         look-controls wasd-controls>
+    <a-entity camera position = "0 1.0 5.5"></a-entity>
+  </a-box> -->
+  
+  <a-camera position="0 1.6 0"></a-camera>
+
+  
+</a-scene>
+  
+</body></html>
