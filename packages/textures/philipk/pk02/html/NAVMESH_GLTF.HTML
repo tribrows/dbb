@@ -14,7 +14,9 @@
 
 <a-scene cursor="rayOrigin: mouse" fog="type: linear; color: #afa; near:10; far:100; density:0.000025">
   <a-entity light="type: ambient; color: #f00; intensity: 0.05"></a-entity>
-  <a-entity light="type: spot; color: #00f; intensity: 1" rotation="0 150 0" position="27 2 10"></a-entity> 
+  <a-entity light="type: spot; color: #00f; intensity: 1" rotation="0 150 0" position="27 2 10" 
+            animation="property: light.color; from:rgb(0, 0, 100); to:rgb(0, 0, 0); dur: 500; loop:true; easings: easeInOutSine; dir: alternate; autoplay: true">
+</a-entity> 
   
   <a-entity id="camRig" movement-controls="speed: 0.8 ;constrainToNavMesh: true">
     <a-entity id="cam" camera="fov:100" look-controls position="0 1 0"></a-entity>
