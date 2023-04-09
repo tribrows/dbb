@@ -1,1 +1,24 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Simple Obj Navmesh Demo</title><meta name="viewport" content="width=device-width, initial-scale=1.0"/><script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script><script src="https://unpkg.com/aframe-recastnavigation-component@2.0.0/dist/aframe-recastnavigation-component.min.js"></script><style>#loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);} .error{font-size:24px;color:#f44336;text-align:center;margin-top:50px;}</style></head><body><a-scene embedded physics="debug: false" recastnav="debug: false" keyboard-shortcuts="enterVR: false;"><a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity><a-entity light="type: ambient; color: #444"></a-entity><a-entity light="type: directional; intensity: 0.5; color: #fff" position="-1 1 1"></a-entity><a-entity id="navmesh" nav-mesh></a-entity><a-assets><a-asset-item id="level-obj" src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/models/obj/male02/male02.obj"></a-asset-item><a-asset-item id="level-mtl" src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/models/obj/male02/male02.mtl"></a-asset-item></a-assets><a-entity obj-model="obj: #level-obj; mtl: #level-mtl" position="0 0 0" static-body></a-entity><a-entity camera-collision collision-planes="#navmesh" cursor="rayOrigin: mouse" raycaster="far: 1000" position="0 1.6 0"></a-entity><div id="loading">Loading...</div><div id="error" class="error" style="display: none">Error loading assets</div></a-scene><script>const assets = ['level-obj', 'level-mtl'];const sceneEl = document.querySelector('a-scene');const loadingEl = document.querySelector('#loading');const errorEl = document.querySelector('#error');let loaded = 0;const onLoad = () => {loaded++;if (loaded >= assets.length) {loadingEl.style.display = 'none';}};const onError = () => {errorEl.style.display = 'block';};assets.forEach((asset) => {const el = document.querySelector(`#${asset}`);el.addEventListener('load', onLoad);el.addEventListener('error', onError);});</script></body></html>
+<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Simple Obj Navmesh Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+  <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+  <!--<script src="https://unpkg.com/aframe-recastnavigation-component@2.0.0/dist/aframe-recastnavigation-component.min.js"></script>-->
+  
+  <style>#loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);} .error{font-size:24px;color:#f44336;text-align:center;margin-top:50px;}
+  </style>
+  </head><body><a-scene embedded physics="debug: false" recastnav="debug: false" keyboard-shortcuts="enterVR: false;">
+  <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity><a-entity light="type: ambient; color: #444"></a-entity>
+  <a-entity light="type: directional; intensity: 0.5; color: #fff" position="-1 1 1"></a-entity>
+  
+  <a-entity id="navmesh" nav-mesh></a-entity>
+  
+  <a-assets><a-asset-item id="level-obj" src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/models/obj/male02/male02.obj"></a-asset-item>
+    <a-asset-item id="level-mtl" src="https://cdn.jsdelivr.net/gh/mrdoob/three.js/examples/models/obj/male02/male02.mtl"></a-asset-item></a-assets>
+  <a-entity obj-model="obj: #level-obj; mtl: #level-mtl" position="0 0 0" static-body></a-entity><a-entity camera-collision collision-planes="#navmesh" cursor="rayOrigin: mouse" raycaster="far: 1000" position="0 1.6 0"></a-entity>
+  <div id="loading">Loading...</div><div id="error" class="error" style="display: none">Error loading assets</div>
+  
+  </a-scene>
+  
+  <script>const assets = ['level-obj', 'level-mtl'];const sceneEl = document.querySelector('a-scene');const loadingEl = document.querySelector('#loading');const errorEl = document.querySelector('#error');let loaded = 0;const onLoad = () => {loaded++;if (loaded >= assets.length) {loadingEl.style.display = 'none';}};const onError = () => {errorEl.style.display = 'block';};assets.forEach((asset) => {const el = document.querySelector(`#${asset}`);el.addEventListener('load', onLoad);el.addEventListener('error', onError);});</script>
+  </body></html>
