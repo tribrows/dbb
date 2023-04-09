@@ -1,0 +1,184 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "mesh": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "blue",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0,
+                    0,
+                    55560.63594692927,
+                    1
+                ]
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        },
+        {
+            "name": "red",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    55560.63594692927,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Mesh",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                },
+                {
+                    "attributes": {
+                        "POSITION": 4,
+                        "NORMAL": 5
+                    },
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 3
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "small_navmesh_colour.bin",
+            "byteLength": 14952
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 996
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 996,
+            "byteLength": 2988
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 3984,
+            "byteLength": 2988
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 6972,
+            "byteLength": 1140
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 8112,
+            "byteLength": 3420
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 11532,
+            "byteLength": 3420
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 249,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 249,
+            "min": [
+                -55.98809814453125,
+                3.5959699153900146,
+                -58.98809814453125
+            ],
+            "max": [
+                49.01190185546875,
+                195.59597778320312,
+                49.01190185546875
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 249,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 285,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 4,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 285,
+            "min": [
+                -49.98809814453125,
+                0.5959699749946594,
+                -46.98809814453125
+            ],
+            "max": [
+                37.01190185546875,
+                201.59597778320312,
+                37.01190185546875
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 5,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 285,
+            "type": "VEC3"
+        }
+    ]
+}
