@@ -196,7 +196,9 @@ body
 	
 <a-scene cursor="rayOrigin: mouse">
   <a-entity id="camRig" movement-controls="speed: 0.3;constrainToNavMesh: true">
-    <a-entity id="cam" camera look-controls position="0 1 0"></a-entity>
+    <a-entity id="cam" camera look-controls position="0 1 0">
+	   <a-entity light="type: point; color: #AAF; distance: 20;"></a-entity>
+	  </a-entity>
   </a-entity>
 	
 <!-- 	<a-scene INSPECTOR-PLUGIN-RECAST -->
