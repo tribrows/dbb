@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="a-html"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>GLTF PHYSICS BOUNDARY COLLISIONS</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"><meta aframe-injected="" name="mobile-web-app-capable" content="yes"><meta aframe-injected="" name="theme-color" content="black">
+    
+<script src="GLTF_physics_boundary_03_files/aframe.min.js"></script>
+    
+<!--<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>-->
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js">
+</script>
+
+     <script src="https://unpkg.com/aframe-aabb-collider-component@3.1.0/dist/aframe-aabb-collider-component.min.js"></script>
+    
+  </head>
+  <body class="a-body">
+    <a-scene raycaster="" background="color: #ECECEC" physics="debug: true" class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" physics="friction: 0.1; restitution: 0.5">
+        
+<!-- <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" device-orientation-permission-ui="">-->
+      <!-- Camera -->
+<!--      <a-entity camera="" position="0 1.6 5" look-controls="" wasd-controls="" rotation=""></a-entity>-->
+      <!-- Static floor -->
+<!--      <a-plane ammo-body="type: static" ammo-shape="type: box" position="0 0 -4" rotation="-90 0 0" width="16" height="12" color="yellow" material="" geometry=""></a-plane>-->
+      <!-- Dynamic box -->
+<!--      <a-box ammo-body="type: dynamic" ammo-shape="type: box" position="0 4 -2" width="3" height="2" depth="1" color="red" material="" geometry=""></a-box>-->
+      <!-- Dynamic sphere with fixed velocity -->
+<!--      <a-sphere explode="" ammo-body="type: kinematic; emitCollisionEvents: true;" ammo-shape="type: sphere" position="-6 2 -2" velocity="1 0 0" radius="1" color="blue" material="" geometry=""></a-sphere>-->
+      <!-- Dynamic box with impusle when colliding -->
+<!--      <a-entity geometry="primitive: box" push="" ammo-body="type: dynamic; emitCollisionEvents: true;" ammo-shape="type: box" position="-3 4 -2" width="1" height="1" depth="1" material="color: green"></a-entity>-->
+      <!-- Dynamic box -->
+<!--      <a-box ammo-body="type: dynamic" ammo-shape="type: box" position="2 4 -2" width="1" height="3" depth="1" color="brown" material="" geometry=""></a-box>
+    <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" data-engine="three.js r147" style="" width="1280" height="479"></canvas><div class="a-loader-title" style="display: none;"></div><div class="a-enter-vr fullscreen" aframe-injected=""><button class="a-enter-vr-button" title="Enter VR mode with a headset or fullscreen without" aframe-injected=""></button></div><div class="a-enter-ar a-hidden" aframe-injected=""><button class="a-enter-ar-button" title="Enter AR mode with a headset or handheld device." aframe-injected=""></button></div><div class="a-orientation-modal a-hidden" aframe-injected=""><button aframe-injected="">Exit VR</button></div><a-entity light="" data-aframe-default-light="" aframe-injected=""></a-entity><a-entity light="" position="" data-aframe-default-light="" aframe-injected=""></a-entity>-->
+      
+<!--      </a-scene>-->
+      
+   <!--     <a-entity id="player" collider-check >
+		  <a-entity id="rc" 
+		    raycaster="objects: .collidable" 
+		    geometry="primitive: box; width: 0.5; height: 4; depth: 0.5" 
+		    material="shader: flat; color:gray" 
+		    position="0 -0.9 0" 
+		    rotation="90 0 0" ></a-entity>
+		</a-entity>
+
+		<a-entity id="inmotion" class="collidable" 
+        geometry="primitive: box; width: 0.5; height: 4; depth: 0.5" 
+        position="1 0 0"
+		    material="shader: flat; color: #00CCDD">
+			<a-animation id="canim"
+			  attribute="position" 
+				dur="2000"
+				from ="-2 -1 0"
+				to="2 0 0.5"
+				fill="forwards"
+				direction="alternate"
+				repeat="indefinite">
+
+			</a-animation>
+		</a-entity>-->
+        
+
+    <a-entity hand-controls="right" aabb-collider="objects: .box"></a-entity>
+    <a-box class="box" color="blue" position="2 1 -1"></a-box>
+        
+        <a-camera raycaster collider-check id="camera" wasd-controls="">
+    <a-box id="box1" static-body position="0 -1 -1" width="1" height="1" depth="1"></a-box>
+        </a-camera>
+        
+        <a-mixin id="test" ttl="" dynamic-body=""></a-mixin>
+        
+<a-sphere id="one" position="2 5.25 -4" radius="1.25" color="#EF2D5E" shadow="" material="" geometry="" velocity="" dynamic-body="mass:10"></a-sphere>
+
+<a-sphere id="two" position="-2 5.25 -4" radius="1.25" color="#EF2D5E" shadow="" material="" geometry="" velocity="" dynamic-body="">
+</a-sphere>
+        
+        <a-box id="anchor" position="0 1 -3" static-body="" material="" geometry="" velocity="">
+        </a-box>
+        
+        <a-box position="0 2.6 -3" dynamic-body="" spring="target: #anchor;
+               damping: 0.25;
+               stiffness: 25;" material="" geometry="" velocity="">
+        </a-box>
+        
+
+
+      <a-gltf-model foo="" static-body="" src="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf" gltf-model="" velocity="" position="-3 0 -4" body="type: dynamic; mass: 5; shape: none;" shape__main="shape: cylinder;
+                   height: 0.36;
+                   radiusTop: 0.24;
+                   radiusBottom: 0.24;" shape__handle="shape: box;
+                     halfExtents: 0.15 0.18 0.04;
+                     offset: 0.4 0 0;">
+        </a-gltf-model>
+        
+        <a-plane width="10" static-body="" material="" velocity="" rotation="90 0 0" geometry="10 10 10" position="2 -2 -2 "></a-plane>
+        
+        <a-plane rotation="-90 0 0" width="10" height="10" static-body="" material="" geometry="" velocity="" position="-2 -2 0"></a-plane>
+        
+        <a-plane static-body="" rotation="0 0 0" width="20" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;" velocity="" position="0 0 0" geometry="10 10 10" height="1"></a-plane>
+        
+        <a-plane static-body="" width="20" height="1" material="src: #crate; repeat: 20 1; transparent: true; opacity: 0.5; side:double;" geometry="" velocity="" rotation="0 -50 10" position="0 0 10"></a-plane>
+     
+        <a-entity static-body="" position="2 0 -4" gltf-model="url(https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf)" velocity="">
+        </a-entity>
+</a-scene>
+    <script>
+    AFRAME.registerComponent("foo", {
+      init: function() {
+    this.el.addEventListener("model-loaded", (e)=>{
+                                          console.log(e)
+     document.querySelector("#one").setAttribute("dynamic-body", "")
+     document.querySelector("#two").setAttribute("dynamic-body", "")
+    })
+      }
+    })
+  
+  var playerEl = document.querySelector('[camera]');
+  playerEl.addEventListener('collide', function (e) {
+  console.log('Player has collided with body #' + e.detail.body.id);
+
+  e.detail.target.el;  // Original entity (playerEl).
+  e.detail.body.el;    // Other entity, which playerEl touched.
+  e.detail.contact;    // Stats about the collision (CANNON.ContactEquation).
+  e.detail.contact.ni; // Normal (direction) of the collision (CANNON.Vec3).
+});
+    </script>
+  
+</body></html>
