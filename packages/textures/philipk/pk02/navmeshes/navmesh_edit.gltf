@@ -14,18 +14,19 @@
             "name" : "Navmesh"
         }
     ],
-    "meshes" : [
+"meshes": [
         {
-            "primitives" : [
+            "primitives": [
                 {
-                    "indices" : 2,
-                    "attributes" : {
-                        "POSITION" : 0,
-                        "NORMAL" : 1
-                    }
+                    "material": 0,
+                    "mode": 4,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1
+                    },
+                    "indices": 2
                 }
-            ],
-            "name" : "Navmesh.001"
+            ]
         }
     ],
     "accessors" : [
