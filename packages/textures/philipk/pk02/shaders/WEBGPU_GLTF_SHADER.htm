@@ -20,81 +20,89 @@
     <canvas id="canvas"></canvas>
 
     <script>
-        async function init() {
-            const canvas = document.getElementById('canvas');
-            const adapter = await navigator.gpu.requestAdapter();
-            const device = await adapter.requestDevice();
-            const context = canvas.getContext('webgpu');
+//  https://tribrows.github.io/dbb/packages/textures/philipk/pk02/green_paint/geometry_green.gltf';
+          
+            async function init() {
+    const canvas = document.getElementById('canvas');
+    const adapter = await navigator.gpu.requestAdapter();
+    const device = await adapter.requestDevice();
+    const context = canvas.getContext('webgpu');
 
-            const swapChainFormat = "bgra8unorm";
-            context.configure({
-                device: device,
+    const swapChainFormat = "bgra8unorm";
+    context.configure({
+        device: device,
+        format: swapChainFormat
+    });
+
+    const gltfURL = 'https://tribrows.github.io/dbb/packages/textures/philipk/pk02/green_paint/geometry_green.gltf'; // Replace with the path to your GLTF/GLB model
+    const gltfResponse = await fetch(gltfURL);
+    const gltfArrayBuffer = await gltfResponse.arrayBuffer();
+    const gltfBuffer = device.createBuffer({
+        size: gltfArrayBuffer.byteLength,
+        usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.COPY_SRC
+    });
+
+    // Write data to the buffer
+    const writeArray = new Uint8Array(gltfArrayBuffer);
+    const mappedBuffer = await gltfBuffer.mapWriteAsync();
+    new Uint8Array(mappedBuffer).set(writeArray);
+    gltfBuffer.unmap();
+
+    const vertexShaderModule = device.createShaderModule({
+        code: `
+        [[stage(vertex)]]
+        fn main([[location(0)]] position: vec4<f32>) -> [[builtin(position)]] vec4<f32> {
+            return position;
+        }`
+    });
+
+    const fragmentShaderModule = device.createShaderModule({
+        code: `
+        [[stage(fragment)]]
+        fn main() -> [[location(0)]] vec4<f32> {
+            return vec4<f32>(1.0, 0.0, 0.0, 1.0); // Red color
+        }`
+    });
+
+    const pipeline = device.createRenderPipeline({
+        vertex: {
+            module: vertexShaderModule,
+            entryPoint: 'main'
+        },
+        fragment: {
+            module: fragmentShaderModule,
+            entryPoint: 'main',
+            targets: [{
                 format: swapChainFormat
-            });
-
-            const gltfURL ='https://tribrows.github.io/dbb/packages/textures/philipk/pk02/green_paint/geometry_green.gltf';
-            const gltfResponse = await fetch(gltfURL);
-            const gltfArrayBuffer = await gltfResponse.arrayBuffer();
-            const gltfBuffer = device.createBuffer({
-                size: gltfArrayBuffer.byteLength,
-                usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.STORAGE
-            });
-            gltfBuffer.setSubData(0, new Uint8Array(gltfArrayBuffer));
-
-            const vertexShaderModule = device.createShaderModule({
-                code: `
-                [[stage(vertex)]]
-                fn main([[location(0)]] position: vec4<f32>) -> [[builtin(position)]] vec4<f32> {
-                    return position;
-                }`
-            });
-
-            const fragmentShaderModule = device.createShaderModule({
-                code: `
-                [[stage(fragment)]]
-                fn main() -> [[location(0)]] vec4<f32> {
-                    return vec4<f32>(1.0, 0.0, 0.0, 1.0); // Red color
-                }`
-            });
-
-            const pipeline = device.createRenderPipeline({
-                vertex: {
-                    module: vertexShaderModule,
-                    entryPoint: 'main'
-                },
-                fragment: {
-                    module: fragmentShaderModule,
-                    entryPoint: 'main',
-                    targets: [{
-                        format: swapChainFormat
-                    }]
-                },
-                primitive: {
-                    topology: 'triangle-list'
-                }
-            });
-
-            const commandEncoder = device.createCommandEncoder();
-            const textureView = context.getCurrentTexture().createView();
-
-            const renderPassDescriptor = {
-                colorAttachments: [{
-                    view: textureView,
-                    loadValue: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
-                    storeOp: 'store'
-                }]
-            };
-
-            const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
-            passEncoder.setPipeline(pipeline);
-            passEncoder.draw(3, 1, 0, 0); // Drawing a triangle for testing, replace this with GLTF rendering logic
-            passEncoder.endPass();
-
-            device.queue.submit([commandEncoder.finish()]);
-            requestAnimationFrame(init);
+            }]
+        },
+        primitive: {
+            topology: 'triangle-list'
         }
+    });
 
-        init();
+    const commandEncoder = device.createCommandEncoder();
+    const textureView = context.getCurrentTexture().createView();
+
+    const renderPassDescriptor = {
+        colorAttachments: [{
+            view: textureView,
+            loadValue: { r: 0.0, g: 0.0, b: 0.0, a: 1.0 },
+            storeOp: 'store'
+        }]
+    };
+
+    const passEncoder = commandEncoder.beginRenderPass(renderPassDescriptor);
+    passEncoder.setPipeline(pipeline);
+    passEncoder.draw(3, 1, 0, 0); // Drawing a triangle for testing, replace this with GLTF rendering logic
+    passEncoder.endPass();
+
+    device.queue.submit([commandEncoder.finish()]);
+    requestAnimationFrame(init);
+}
+
+init();
+
     </script>
 </body>
 
