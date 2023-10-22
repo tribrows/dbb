@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame Scene with Green GLTF Model</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="model" src="https://tribrows.github.io/dbb/packages/textures/philipk/pk02/green_paint/geometry_green.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-entity id="model" gltf-model="#model" scale="1 1 1" green-color></a-entity>
+
+        <a-camera position="0 1.6 0">
+            <a-cursor></a-cursor>
+        </a-camera>
+    </a-scene>
+
+    <script type="text/javascript">
+        AFRAME.registerComponent('green-color', {
+            init: function () {
+                this.el.addEventListener('model-loaded', () => {
+                    const mesh = this.el.getObject3D('mesh');
+                    if (mesh) {
+                        mesh.traverse(node => {
+                            if (node.isMesh) {
+                                node.material.color.set('#00FF00'); // Set color to green
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
